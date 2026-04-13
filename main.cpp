@@ -1,6 +1,6 @@
 #include "Owned.h"
 #include "Achievements.h"
-vector<Owned>own;
+vector<Game>own;
 int main(){
 cout<<"Welcome to the Game Tracker. How can we help you today \n";
 cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n";
@@ -8,7 +8,7 @@ int choice{};
 cin>>choice;
 if (choice==1){
 for(int i{};i==own.size();i++){
-    
+    own[i].display();
 }
 }
 else if(choice==2){
@@ -49,5 +49,4 @@ if(x=="new"){
 }
 else{}
 
-cout<<own.size();
 }
