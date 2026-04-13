@@ -1,7 +1,9 @@
 #include <string>
 #include <iostream>
 using std::string;
-
+using std::cout;
+using std::cin;
+using std::endl;
 class Game{
     private:
     string name;

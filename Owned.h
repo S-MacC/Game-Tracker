@@ -9,5 +9,7 @@ int review;
 int players;
 float time;
 public:
-void setachieve(Achievements);
+void setachieve(Achievements a1);
+void getachieve(){std::cout<< achieve.size();}
+void Display();
 };

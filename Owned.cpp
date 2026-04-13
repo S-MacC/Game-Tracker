@@ -1,4 +1,4 @@
 #include "Owned.h"
-void Owned::setachieve(Achievements){
-    achieve.push_back(Achievements);//need to add pointers
+void Owned::setachieve(Achievements a1){
+    achieve.push_back(a1);//need to add pointers
 }
