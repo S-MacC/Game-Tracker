@@ -11,5 +11,5 @@ void setcomp(bool c){c=completion;}
 string getname(){return name;}
 string getdesc(){return desc;}
 bool getcomp(){return completion;}
-void display(){}
+void display();
 };
