@@ -32,26 +32,47 @@ int main(){
                     if(x=="new"){
                     string title;
                     int rel;
-                string dev;
-                string publ;
+                    string dev;
+                    string publ;
 
-                cout<<"What is the title\n";
-                cin>>title;
-                cout<<"What is the release date\n";
-                cin>>rel;
-                cout<<"Who is the developer\n";
-                cin>>dev;
-                cout<<"Who is the publisher\n";
-                cin>>publ;
-                Owned ownednew;
-                ownednew.setname(title);
-                ownednew.setrelease(rel);
-                ownednew.setdev(dev);
-                ownednew.setpub(publ);
-                own.push_back(ownednew);
+                    cout<<"What is the title\n";
+                    cin>>title;
+                    cout<<"What is the release date\n";
+                    cin>>rel;
+                    cout<<"Who is the developer\n";
+                    cin>>dev;
+                    cout<<"Who is the publisher\n";
+                    cin>>publ;
+                    Owned ownednew;
+                    ownednew.setname(title);
+                    ownednew.setrelease(rel);
+                    ownednew.setdev(dev);
+                    ownednew.setpub(publ);
+                    own.push_back(ownednew);
     
                 }
-            }
+                else if(x=="wishlist"){
+                    string title;
+                    int rel;
+                    string dev;
+                    string publ;
+
+                    cout<<"What is the title\n";
+                    cin>>title;
+                    cout<<"What is the release date\n";
+                    cin>>rel;
+                    cout<<"Who is the developer\n";
+                    cin>>dev;
+                    cout<<"Who is the publisher\n";
+                    cin>>publ;
+                    Wishlist wishednew;
+                    wishednew.setname(title);
+                    wishednew.setrelease(rel);
+                    wishednew.setdev(dev);
+                    wishednew.setpub(publ);
+                    wish.push_back(wishednew);
+                    }
             else if (choice==6){x=1;}
     }
+}
 }
