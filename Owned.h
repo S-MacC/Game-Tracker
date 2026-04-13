@@ -1,6 +1,10 @@
 #include "Game.h"
-class Owned : Game{
-    //achievement vector goes here
+#include "Achievements.h"
+#include <vector>
+using std::vector;
+class Owned : public Game{
+private:
+vector<Achievements>achieve;
 int review;
 int players;
 float time;
