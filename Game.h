@@ -12,7 +12,7 @@ class Game{
     string pub;
     public:
     void setname(const string &n){name=n;};
-    void setrelease(const int &r){release=r;};
+    void setrelease(int r){release=r;};
     void setdev(const string &d){dev=d;};
     void setpub(const string &p){pub=p;};
     string getname(){return name;}

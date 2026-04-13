@@ -11,5 +11,5 @@ float time;
 public:
 void setachieve(Achievements a1);
 void getachieve(){std::cout<< achieve.size();}
-void Display();
+void display();
 };
