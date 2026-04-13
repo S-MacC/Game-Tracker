@@ -19,5 +19,5 @@ class Game{
     int getrelease(){return release;}
     string getdev(){return dev;}
     string getpub(){return pub;}
-    void display()
+    virtual void display()
 ;};

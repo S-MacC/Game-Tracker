@@ -1,4 +1,5 @@
-#include "Game.h"
+#ifndef GAME
+#define GAME
 class Wishlist : public Game{
 private:
 int nopre;
@@ -7,3 +8,4 @@ float price;
 public:
 
 };
+#endif
