@@ -7,7 +7,7 @@ string desc;
 bool completion;
 public:
 void setname(const string &n){name=n;}
-void setdesc(const string &d){desc=d;}
+void setdesc(const string &d){desc=d;}//doesn't seem to work without the const
 void setcomp(const bool &c){completion=c;}
 string getname(){return name;}
 string getdesc(){return desc;}
