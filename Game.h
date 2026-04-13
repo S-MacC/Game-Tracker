@@ -9,10 +9,10 @@ class Game{
     string dev;
     string pub;
     public:
-    void setname(string n){n=name;}
-    void setrelease(string r){r=release;}
-    void setdev(string d){d=dev;}
-    void setpub(string p){p=pub;}
+    void setname(const string &n){name=n;};
+    void setrelease(const int &r){release=r;};
+    void setdev(const string &d){dev=d;};
+    void setpub(const string &p){pub=p;};
     string getname(){return name;}
     int getrelease(){return release;}
     string getdev(){return dev;}
