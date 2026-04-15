@@ -1,2 +1,8 @@
 #include "Game.h"
-void Game::display(){cout<<"Name: "<<name<<"\n"<<"Release Year"<<release<<"\n"<<"Developer"<<dev<<"\n"<<"Publisher"<<pub<<"\n";}
+#ifndef _DEVELOPER_
+#define _DEVELOPER_
+#ifndef _PUBLISHER_
+#define _PUBLISHER_
+void Game::display(){cout<<"Name: "<<name<<"\n"<<"Release Year"<<release<<"\n"<<"Developer"<<dev.getname()<<"\n"<<"Publisher"<<pub.getname()<<"\n";}
+#endif
+#endif

@@ -17,6 +17,6 @@ void Owned::getachieve(){
         total++;
     }
     }
-    percent=(total/size)*100;
+    percent==((total/size)*100);
     cout<<"You are "<<percent<<" percent done with the game\n";
 }

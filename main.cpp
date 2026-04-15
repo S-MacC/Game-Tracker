@@ -30,7 +30,42 @@ int main(){
                 
             
             else if(choice==3){
-
+                cout<<"\nWhat would you like to filter by\n";
+                string filter;
+                cin>>filter;
+                if(filter=="developer"){
+                cout<<"\nWhich Developer would you like to see";
+                string dev;
+                cin>>dev;
+                string devel;
+                for(int i{};i<own.size();i++){
+                devel=own[i].getdev();
+                if(devel==dev){own[i].display();};
+                }   
+                }
+                else if(filter=="publisher"){
+                cout<<"\nWhich Publisher would you like to see";
+                string pub;
+                cin>>pub;
+                string publi;
+                for(int i{};i<own.size();i++){
+                publi=own[i].getpub();
+                if(publi==pub){own[i].display();};
+                }
+                }
+                else if(filter=="System"){
+                    cout<<"\nDo you want console or PC\n";
+                    string system;
+                    cin>>system;
+                    if(system=="console"){
+                        cout<<"\nWhich console do you want\n";
+                        string console;
+                        cin>>console;
+                    }
+                    else if(system=="PC"){cout<<"\nHere is a list of all your PC games\n";}
+                    else{cout<<"\nChoice not valid\n";}
+                }
+                else;
             }
             else if (choice==4){
                 for(int i{};i<wish.size();i++){
@@ -42,6 +77,11 @@ int main(){
                 string x;
                 cin>>x;//error checking here
                     if(x=="new"){
+                        cout<<"\nIs this title from your wishlist[y/n]\n";
+                        string yn;
+                        cin>>yn;
+                        if(yn=="y"){/*call copy constructor here*/}
+                            else if(yn=="n"){
                     string title;
                     int rel;
                     string dev;
@@ -61,10 +101,13 @@ int main(){
                     ownednew.setdev(dev);
                     ownednew.setpub(publ);
                     Achievements a1;
+                    Achievements a2;
                     a1.setname("Mario");
+                    a2.setcomp(true);
+                    ownednew.setachieve(a2);
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
-    
+                            }
                 }
                 else if(x=="wishlist"){
                     string title;

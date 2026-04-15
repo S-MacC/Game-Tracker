@@ -1,5 +1,7 @@
 #include <string>
 #include <iostream>
+#include "Developer.h"
+#include "Publisher.h"
 using std::string;
 using std::cout;
 using std::cin;
@@ -8,16 +10,16 @@ class Game{
     private:
     string name;
     int release;
-    string dev;
-    string pub;
+    Developer dev;
+    Publisher pub;
     public:
     void setname(const string &n){name=n;};
     void setrelease(int r){release=r;};
-    void setdev(const string &d){dev=d;};
-    void setpub(const string &p){pub=p;};
+    void setdev(string d){dev.setname(d);};
+    void setpub(const string &p){pub.setname(p);};
     string getname(){return name;}
     int getrelease(){return release;}
-    string getdev(){return dev;}
-    string getpub(){return pub;}
+    string getdev(){return dev.getname();}
+    string getpub(){return pub.getname();}
     virtual void display()
 ;};
