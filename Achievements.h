@@ -1,10 +1,12 @@
 #ifndef GAME_H_
 #define GAME_H_
+#include <string>
+using std::string;
 class Achievements{
 private:
 string name;
 string desc;
-bool completion;
+bool completion{};
 public:
 void setname(const string &n){name=n;}
 void setdesc(const string &d){desc=d;}//doesn't seem to work without the const

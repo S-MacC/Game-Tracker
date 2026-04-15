@@ -1,5 +1,6 @@
 #include "Owned.h"
-#include "Achievements.h"
+#ifndef _ACHIEVEMENTS_
+#define _ACHIEVEMENTS_
 #include "Wishlist.h"
 vector<Owned>own;
 vector<Wishlist>wish;
@@ -16,7 +17,18 @@ int main(){
             }
             else if(choice==2){
                 cout<<"What Game would you like to check achievements for\n";
+                string game;
+                cin>>game;
+                for(int i{};i<own.size();i++){
+                string name;
+                name=own[i].getname();
+                if(name==game){own[i].getachieve();};
+                }
             }
+        
+            
+                
+            
             else if(choice==3){
 
             }
@@ -48,6 +60,9 @@ int main(){
                     ownednew.setrelease(rel);
                     ownednew.setdev(dev);
                     ownednew.setpub(publ);
+                    Achievements a1;
+                    a1.setname("Mario");
+                    ownednew.setachieve(a1);
                     own.push_back(ownednew);
     
                 }
@@ -76,3 +91,4 @@ int main(){
     }
 }
 }
+#endif
