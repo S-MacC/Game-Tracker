@@ -2,12 +2,10 @@
 #ifndef _ACHIEVEMENTS_
 #define _ACHIEVEMENTS_
 #include "Wishlist.h"
-#include <windows.h>
 vector <Achievements>achieve;
 vector<Owned>own;
 vector<Wishlist>wish;
 int main(){
-    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     for(int x{};x<1;){
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n";
@@ -19,6 +17,7 @@ int main(){
                 }
             }
             else if(choice==2){
+                try{
                 cout<<"What Game would you like to check achievements for\n";
                 string game;
                 cin>>game;
@@ -31,10 +30,14 @@ int main(){
                     }
                 }
                 if(!found){
-                    
-                    cout << "game not found/ not owned."<<endl;//exception handling here
+                    throw "Game not found in owned list";
                 }
             }
+            
+            catch(const char* msg){
+                cout << msg << endl;
+            }
+        }
 
             else if(choice==3){
                 cout<<"\nWhat would you like to filter by\n";
