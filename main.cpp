@@ -41,6 +41,14 @@ int main(){
                     if(own[i].getname() == game){
                         found = true;
                         own[i].getachieve();
+                        cout<<"\nWould you like to change or add achievements\n";
+                        string achoice;
+                        cin>>achoice;
+                        if(achoice=="change"){
+                            cout<<"\nWhich achievements would you like to change\n";
+                        }
+                        else if(achoice=="add"){}
+                        else if(achoice=="n"){break;}
                         break;
                     }
                 }

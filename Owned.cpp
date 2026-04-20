@@ -5,9 +5,9 @@ void Owned::setachieve(Achievements a1){
 void Owned::display(){cout<<"Name: "<<getname()<<"\n"<<"Release Year: "<<getrelease()<<"\n"<<"Developer: "<<getdev()<<"\n"<<"Publisher: "<<getpub()<<"\n";}
 
 void Owned::getachieve(){
-    int total;
-    int size;
-    int percent;
+    int total{};
+    int size{};
+    double percent{};
     size=achieve.size();
     for(int i{};i<achieve.size();i++){
     achieve[i].display();
@@ -17,6 +17,6 @@ void Owned::getachieve(){
         total++;
     }
     }
-    percent==((total/size)*100);
-    cout<<"You are "<<percent<<" percent done with the game\n";
+    percent=(double)total/size * 100;
+        cout<<"You are "<<percent<<" percent done with the game\n";
 }
