@@ -56,10 +56,19 @@ int main(){
                                     string nname;
                                     std::getline(cin,nname);
                                     std::getline(cin,nname);
-                                    own[i].setachname(nname,i);
+                                    own[i].setachname(nname,achange);
                                 }
-                                //else if(){}
-                                //else if(){}
+                                else if(wchange=="description"){
+                                cout<<"\nWhat description would you like to give it\n";
+                                string ndesc;
+                                std::getline(cin,ndesc);
+                                std::getline(cin,ndesc);
+                                own[i].setachdesc(ndesc,achange);  
+                                }
+                                else if(wchange=="completion"){
+                                    cout<<"\nCongratulations on completing this achievement\n";
+                                    own[i].setachcomp(achange);
+                                }
                         }
                         else if(achoice=="add"){}
                         else if(achoice=="n"){break;}

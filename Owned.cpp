@@ -10,7 +10,8 @@ void Owned::getachieve(){
     double percent{};
     size=achieve.size();
     for(int i{};i<achieve.size();i++){
-    cout<<i++<<endl;
+        
+    cout<<i<<endl;
     achieve[i].display();
     bool foo;
     foo=achieve[i].getcomp();
