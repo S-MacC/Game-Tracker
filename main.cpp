@@ -110,7 +110,8 @@ int main(){
             else if (choice==5){
                 cout<<"Is this a new purchase or a wishlist item?\n";
                 string x;
-                cin>>x;//error checking here
+                cin>>x;
+                try{ 
                     if(x=="new"){
                         cout<<"\nIs this title from your wishlist[y/n]\n";
                         string yn;
@@ -174,8 +175,16 @@ int main(){
                     wishednew.setpub(publ);
                     wish.push_back(wishednew);
                     }
+                    else{
+                        throw "Invalid choice";
+                    }
+                }
+                catch(const char* msg){
+                    cout << msg << endl;
+                }
+            }
             else if (choice==6){break;}
     }
 }
-}
+
 #endif
