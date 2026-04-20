@@ -12,6 +12,7 @@ class Game{
     int release;
     Developer dev;
     Publisher pub;
+    string franchise;
     public:
     void setname(const string &n){name=n;};
     void setrelease(int r){release=r;};

@@ -2,8 +2,11 @@
 #ifndef _ACHIEVEMENTS_
 #define _ACHIEVEMENTS_
 #include "Wishlist.h"
+#include <algorithm>
 vector<Owned>own;
 vector<Wishlist>wish;
+bool checkyear(Owned &a, Owned &b){
+return a.getrelease() < b.getrelease();}
 int main(){
     for(int x{};x<1;){
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
@@ -11,9 +14,11 @@ int main(){
         int choice{};
         cin>>choice;
             if (choice==1){
+                sort(own.begin(), own.end(), checkyear);
                 for(int i{};i<own.size();i++){
-                own[i].display();
-                }
+                own[i].display();}
+
+                
             }
             else if(choice==2){
                 cout<<"What Game would you like to check achievements for\n";
@@ -80,7 +85,15 @@ int main(){
                         cout<<"\nIs this title from your wishlist[y/n]\n";
                         string yn;
                         cin>>yn;
-                        if(yn=="y"){/*call copy constructor here*/}
+                        if(yn=="y"){
+                            cout<<"\nWhat is the name of the game?\n";
+                            string game;
+                            int r;
+                            string *gptr= &game;
+                            int *rptr =&r;
+                            cin>>*gptr;
+                            cin>>*rptr;
+                        }
                             else if(yn=="n"){
                     string title;
                     int rel;
@@ -95,6 +108,7 @@ int main(){
                     cin>>dev;
                     cout<<"Who is the publisher\n";
                     cin>>publ;
+                    cout<<"What franchise is the game a part of\n";
                     Owned ownednew;
                     ownednew.setname(title);
                     ownednew.setrelease(rel);
@@ -130,7 +144,7 @@ int main(){
                     wishednew.setpub(publ);
                     wish.push_back(wishednew);
                     }
-            else if (choice==6){x=1;}
+            else if (choice==6){break;}
     }
 }
 }
