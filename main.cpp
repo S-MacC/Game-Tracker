@@ -15,6 +15,7 @@ int main(){
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n";
         int choice{};
         cin>>choice;
+        cin.ignore();
             if (choice==1){ 
                 try{                                                            //exception handling for empty owned list
                     if(own.empty()){
@@ -35,7 +36,8 @@ int main(){
                 try{                                                            //exception handling if game not found in owned list.
                 cout<<"What Game would you like to check achievements for\n";
                 string game;
-                cin>>game;
+                getline(cin,game);
+                cin.ignore();
                 bool found = false;
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
@@ -44,24 +46,25 @@ int main(){
                         cout<<"\nWould you like to change or add achievements\n";
                         string achoice;
                         cin>>achoice;
+                        cin.ignore();
                         if(achoice=="change"){
                             cout<<"\nWhich achievements would you like to change\n";
                             int achange{};
                             cin>>achange;
+                            cin.ignore();
                             cout<<"\nWhat would you like to change\n";
                             string wchange;
                             cin>>wchange;
+                            cin.ignore();
                                 if(wchange=="name"){
                                     cout<<"\nWhat name would you like to give it\n";
                                     string nname;
-                                    std::getline(cin,nname);
                                     std::getline(cin,nname);
                                     own[i].setachname(nname,achange);
                                 }
                                 else if(wchange=="description"){
                                 cout<<"\nWhat description would you like to give it\n";
                                 string ndesc;
-                                std::getline(cin,ndesc);
                                 std::getline(cin,ndesc);
                                 own[i].setachdesc(ndesc,achange);  
                                 }
@@ -70,7 +73,18 @@ int main(){
                                     own[i].setachcomp(achange);
                                 }
                         }
-                        else if(achoice=="add"){}
+                        else if(achoice=="add"){
+                            Achievements atemp;
+                            cout<<"\nWhat is the name of your new achievement\n";
+                            string tname;
+                            getline(cin,tname);
+                            atemp.setname(tname);
+                            cout<<"\nWhat is the description you would like to add to this achievement?\n";
+                            string tdesc;
+                            getline(cin,tdesc);
+                            atemp.setdesc(tdesc);
+                            own[i].setachieve(atemp);
+                        }
                         else if(achoice=="n"){break;}
                         break;
                     }
@@ -89,10 +103,11 @@ int main(){
                 cout<<"\nWhat would you like to filter by\n";
                 string filter;
                 cin>>filter;
+                cin.ignore();
                 if(filter=="developer"){
                 cout<<"\nWhich Developer would you like to see";
                 string dev;
-                cin>>dev;
+                getline(cin,dev);
                 string devel;
                 for(int i{};i<own.size();i++){
                 devel=own[i].getdev();
@@ -102,7 +117,7 @@ int main(){
                 else if(filter=="publisher"){
                 cout<<"\nWhich Publisher would you like to see";
                 string pub;
-                cin>>pub;
+                getline(cin,pub);
                 string publi;
                 for(int i{};i<own.size();i++){
                 publi=own[i].getpub();
@@ -112,11 +127,11 @@ int main(){
                 else if(filter=="System"){
                     cout<<"\nDo you want console or PC\n";
                     string system;
-                    cin>>system;
+                    getline(cin,system);
                     if(system=="console"){
                         cout<<"\nWhich console do you want\n";
                         string console;
-                        cin>>console;
+                        getline(cin,console);
                     }
                     else if(system=="PC"){cout<<"\nHere is a list of all your PC games\n";}
                     else{cout<<"\nChoice not valid\n";}
@@ -142,11 +157,13 @@ int main(){
                 cout<<"Is this a new purchase or a wishlist item?\n";
                 string x;
                 cin>>x;
+                cin.ignore();
                 try{ 
                     if(x=="new"){
                         cout<<"\nIs this title from your wishlist[y/n]\n";
                         string yn;
                         cin>>yn;
+                        cin.ignore();
                         if(yn=="y"){
                             cout<<"\nWhat is the name of the game?\n";
                             string game;
@@ -163,13 +180,13 @@ int main(){
                     string publ;
 
                     cout<<"What is the title\n";
-                    cin>>title;
+                    getline(cin,title);
                     cout<<"What is the release date\n";
                     cin>>rel;
                     cout<<"Who is the developer\n";
-                    cin>>dev;
+                    getline(cin,dev);
                     cout<<"Who is the publisher\n";
-                    cin>>publ;
+                    getline(cin,dev);
                     cout<<"What franchise is the game a part of\n";
                     Owned ownednew;
                     ownednew.setname(title);
