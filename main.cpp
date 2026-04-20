@@ -37,13 +37,12 @@ int main(){
                 cout<<"What Game would you like to check achievements for\n";
                 string game;
                 getline(cin,game);
-                cin.ignore();
                 bool found = false;
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
                         found = true;
                         own[i].getachieve();
-                        cout<<"\nWould you like to change or add achievements\n";
+                        cout<<"\nWould you like to change, add or delete achievements\n";
                         string achoice;
                         cin>>achoice;
                         cin.ignore();
@@ -84,6 +83,14 @@ int main(){
                             getline(cin,tdesc);
                             atemp.setdesc(tdesc);
                             own[i].setachieve(atemp);
+                        }
+                        else if(achoice=="delete"){
+                            cout<<"\nWhich achievement do you want to delete\n";
+                            int dchoice;
+                            cin>>dchoice;
+                            cin.ignore();
+                            own[i].deleteachieve(dchoice);
+
                         }
                         else if(achoice=="n"){break;}
                         break;
@@ -183,6 +190,7 @@ int main(){
                     getline(cin,title);
                     cout<<"What is the release date\n";
                     cin>>rel;
+                    cin.ignore();
                     cout<<"Who is the developer\n";
                     getline(cin,dev);
                     cout<<"Who is the publisher\n";
