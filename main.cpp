@@ -2,12 +2,18 @@
 #ifndef _ACHIEVEMENTS_
 #define _ACHIEVEMENTS_
 #include "Wishlist.h"
+<<<<<<< HEAD
 #include <algorithm>
+=======
+#include <windows.h>
+vector <Achievements>achieve;
+>>>>>>> f6c1129f9900fc6f3e37f3100d26f8e6df375b69
 vector<Owned>own;
 vector<Wishlist>wish;
 bool checkyear(Owned &a, Owned &b){
 return a.getrelease() < b.getrelease();}
 int main(){
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     for(int x{};x<1;){
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n";
@@ -24,16 +30,20 @@ int main(){
                 cout<<"What Game would you like to check achievements for\n";
                 string game;
                 cin>>game;
-                for(int i{};i<own.size();i++){
-                string name;
-                name=own[i].getname();
-                if(name==game){own[i].getachieve();};
+                bool found = false;
+                for(int i{}; i<own.size(); i++){
+                    if(own[i].getname() == game){
+                        found = true;
+                        own[i].getachieve();
+                        break;
+                    }
+                }
+                if(!found){
+                    
+                    cout << "game not found/ not owned."<<endl;//exception handling here
                 }
             }
-        
-            
-                
-            
+
             else if(choice==3){
                 cout<<"\nWhat would you like to filter by\n";
                 string filter;
