@@ -93,10 +93,20 @@ int main(){
                 else;
             }
             else if (choice==4){
+                try{                                                            //exception handling for empty wishlist
+                    if(wish.empty()){
+                        throw "No games in wishlist";
+                    }
+                    else{
                 for(int i{};i<wish.size();i++){
                 wish[i].display();
                 }
             }
+        }
+            catch(const char* msg){
+                cout << msg << endl;
+            }
+    }
             else if (choice==5){
                 cout<<"Is this a new purchase or a wishlist item?\n";
                 string x;
