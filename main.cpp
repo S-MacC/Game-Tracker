@@ -46,6 +46,20 @@ int main(){
                         cin>>achoice;
                         if(achoice=="change"){
                             cout<<"\nWhich achievements would you like to change\n";
+                            int achange{};
+                            cin>>achange;
+                            cout<<"\nWhat would you like to change\n";
+                            string wchange;
+                            cin>>wchange;
+                                if(wchange=="name"){
+                                    cout<<"\nWhat name would you like to give it\n";
+                                    string nname;
+                                    std::getline(cin,nname);
+                                    std::getline(cin,nname);
+                                    own[i].setachname(nname,i);
+                                }
+                                //else if(){}
+                                //else if(){}
                         }
                         else if(achoice=="add"){}
                         else if(achoice=="n"){break;}

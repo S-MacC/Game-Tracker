@@ -12,4 +12,5 @@ public:
 void setachieve(Achievements a1);
 void getachieve();
 void display();
+void setachname(const string &n,int i){achieve[i].setname(n);};
 };
