@@ -211,7 +211,8 @@ int main(){
                     ownednew.setachieve(a2);
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
-                    own[0].call();
+                    own[0].achivments();
+                    own[0].game();
                             }
                 }
                 else if(x=="wishlist"){

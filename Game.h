@@ -1,8 +1,10 @@
 #include <string>
 #include <iostream>
 #include "Developer.h"
+#include <fstream>
 #include "Publisher.h"
 using std::string;
+using std::ofstream;
 using std::cout;
 using std::cin;
 using std::endl;
@@ -22,5 +24,6 @@ class Game{
     int getrelease(){return release;}
     string getdev(){return dev.getname();}
     string getpub(){return pub.getname();}
-    virtual void display()
-;};
+    virtual void display();
+    void game();
+};

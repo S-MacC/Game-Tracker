@@ -11,9 +11,9 @@ public:
 void setname(const string &n){name=n;}
 void setdesc(const string &d){desc=d;}//doesn't seem to work without the const
 void setcomp(const bool &c){completion=c;}
-string getname(){return name;}
-string getdesc(){return desc;}
-bool getcomp(){return completion;}
+string getname() const {return name;}
+string getdesc() const {return desc;}
+bool getcomp() const {return completion;}
 void display();
 };
 #endif
