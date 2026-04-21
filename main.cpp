@@ -4,6 +4,9 @@
 #include "Wishlist.h"
 #include <algorithm>
 #include <windows.h>
+#include <fstream>
+using std::ofstream;
+void call();
 vector <Achievements>achieve;
 vector<Owned>own;
 vector<Wishlist>wish;
@@ -208,6 +211,7 @@ int main(){
                     ownednew.setachieve(a2);
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
+                    own[0].call();
                             }
                 }
                 else if(x=="wishlist"){

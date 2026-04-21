@@ -22,3 +22,18 @@ void Owned::getachieve(){
     percent=(double)total/size * 100;
         cout<<"You are "<<percent<<" percent done with the game\n";
 }
+void Owned::call(){
+    string filename = getname() + "_A.txt";
+    ofstream myfile(filename, std::ios::app);  // Append mode
+    if (!myfile.is_open()) {
+        cout << "Error opening file: " << filename << endl;
+        return;
+    }
+    for(int i{};i<achieve.size();i++){
+        myfile << achieve[i].getname() << "\n";
+        myfile << achieve[i].getdesc() << "\n";
+        myfile << achieve[i].getcomp() << "\n";
+        myfile << "---" << "\n";  // Separator between achievements
+    }
+    myfile.close();
+}
