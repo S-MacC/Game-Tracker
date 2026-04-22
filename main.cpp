@@ -7,24 +7,28 @@
 #include <fstream>
 using std::ofstream;
 void call();
+vector <Owned> load();
 vector <Achievements>achieve;
 vector<Owned>own;
 vector<Wishlist>wish;
 bool checkyear(Owned &a, Owned &b){
 return a.getrelease() < b.getrelease();}
 int main(){
+    own=load();
     for(int x{};x<1;){
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
         cin>>choice;
         cin.ignore();
-            if (choice==1){ 
+            if (choice==1){
+                //load(); 
                 try{                                                            //exception handling for empty owned list
                     if(own.empty()){
                         throw "No games in owned list";
                     }
                     else{
+                        
                 sort(own.begin(), own.end(), checkyear);
                 for(int i{};i<own.size();i++){
                 own[i].display();}
@@ -199,7 +203,8 @@ int main(){
                     cout<<"Who is the publisher\n";
                     getline(cin,publ);
                     cout<<"What franchise is the game a part of\n";
-                    Owned ownednew;
+                    float s{18.4};
+                    Owned ownednew(title,rel,s);
                     ownednew.setname(title);
                     ownednew.setrelease(rel);
                     ownednew.setdev(dev);
@@ -213,8 +218,8 @@ int main(){
                     own.push_back(ownednew);
                     int value;
                     value=own.size()-1;
-                    own[value].achivments();
-                    own[value].game();
+                    ownednew.achivments();
+                    ownednew.game();
                             }
                 }
                 else if(x=="wishlist"){
@@ -253,16 +258,49 @@ int main(){
                 for(int i{};i<own.size();i++){
                 newgame=own[i].getname();
                 if(egame==newgame){
+                    int perm{};
+                    perm==i;
                     cout<<"What would you like to edit\n";
                     string edit;
                     cin>>edit;
                     cin.ignore();
-                    if(edit=="name"){}
-                    else if(edit=="release"){}
-                    else if(edit=="developer"){}
-                    else if(edit=="publisher"){}
-                    else if(edit=="Time"){}
-                    else if(edit=="review"){}
+                    if(edit=="name"){
+                        cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to";
+                        string gname;
+                        getline(cin,gname);
+                        own[perm].setname(gname);
+                    }
+                    else if(edit=="release"){
+                        cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to\n";
+                        int grelease;
+                        cin>>grelease;
+                        cin.ignore();
+                        own[perm].setrelease(grelease);
+                    }
+                    else if(edit=="developer"){
+                        cout<<"What would you like to change about the Developer "<<own[perm].getdev()<<"\n";
+                        string cdev;
+                        getline(cin,cdev);
+                    }
+                    else if(edit=="publisher"){
+                        cout<<"What would you like to change about the Developer "<<own[perm].getdev()<<"\n";
+                        string cpub;
+                        getline(cin,cpub);
+                    }
+                    else if(edit=="Time"){
+                        cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to\n";
+                        float gtime;
+                        cin>>gtime;
+                        cin.ignore();
+                        own[perm].settime(gtime);
+                    }
+                    else if(edit=="review"){
+                        cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to\n";
+                        int greview;
+                        cin>>greview;
+                        cin.ignore();
+                        own[perm].setreview(greview);
+                    }
                     
                 };
             }
@@ -272,3 +310,38 @@ int main(){
 }
 
 #endif
+vector<Owned> load()
+        {
+            vector<Owned> artists;
+            std::ifstream file("Mario_A.txt");
+            
+            if (!file.is_open())
+            {
+                //throw runtime_error("File not found or could not be opened.");
+            }
+            
+            try
+            {    
+                string line;
+                while (getline(file, line)) 
+                {
+                    size_t pos1 = line.find(',');
+                    size_t pos2 = line.find(',', pos1 + 1);
+                    
+                    string name = line.substr(0, pos1);
+                    int genre = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
+                    float albums = std::stoi(line.substr(pos2 + 1));
+                        
+                    artists.push_back(Owned(name, genre, albums));
+                }
+                
+                file.close();
+                return artists;
+            }
+            catch (...)
+            {
+                cout << "Error reading from file." << endl;
+                return {};
+            }
+        }
+        

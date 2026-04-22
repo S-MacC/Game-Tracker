@@ -8,7 +8,11 @@ vector<Achievements>achieve;//need to add pointers
 int review;
 float time;
 public:
+Owned();
+Owned(string,int,float);
 void setachieve(Achievements a1);
+void setreview(const int &n){review=n;};
+void settime(const float &n){time=n;};
 void getachieve();
 void display();
 void setachname(const string &n,int i){achieve[i].setname(n);};
