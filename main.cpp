@@ -340,14 +340,14 @@ vector<Owned> load()
                     
                     string name = line.substr(0, pos1);
                     int release = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
-                    float devrev = std::stoi(line.substr(pos2 + 1, pos3 - pos2 -pos1- 2));
-                    float playtime = std::stof(line.substr(line.find_last_of(',') + 1));
-                    string devName = line.substr(pos2 + 1, line.find_last_of(',') - pos2 - 1);
-                    int devEM = std::stoi(line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1));
-                    string pubName = line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1);
-                    int pubEM = std::stoi(line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1));
-                    float pubRev = std::stof(line.substr(line.find_last_of(',') + 1));
-                    float review = std::stof(line.substr(line.find_last_of(',') + 1));
+                    string devName = line.substr(pos2 + 1, pos3 - pos2 - 1);
+                    int devEM = std::stoi(line.substr(pos3 + 1, pos4 - pos3 - 1));
+                    float devrev = std::stof(line.substr(pos4 + 1, pos5 - pos4 - 1));
+                    string pubName = line.substr(pos5 + 1, pos6 - pos5 - 1);
+                    float pubRev = std::stof(line.substr(pos6 + 1, pos7 - pos6 - 1));
+                    int pubEM = std::stoi(line.substr(pos7 + 1, pos8 - pos7 - 1));
+                    float playtime = std::stof(line.substr(pos8 + 1, pos9 - pos8 - 1));
+                    float review = std::stof(line.substr(pos9 + 1));
 
 
 
