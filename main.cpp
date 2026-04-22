@@ -313,7 +313,7 @@ int main(){
 vector<Owned> load()
         {
             vector<Owned> artists;
-            std::ifstream file("Mario_A.txt");
+            std::ifstream file("game.txt");
             
             if (!file.is_open())
             {
