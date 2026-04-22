@@ -80,4 +80,15 @@ void Owned::achivments(){
                 return {};
             }
         }
-        
+        void Owned::game()
+{
+        string filename ="game.txt";
+    ofstream myfile(filename, std::ios::app);  // Append mode
+    if (!myfile.is_open()) {
+        cout << "Error opening file: " << filename << endl;
+        return;
+    }
+    
+        myfile << getname() <<","<< getrelease() <<","<<printdev() <<"," << printpub() <<"," << review << ","<< time << endl;
+    
+}

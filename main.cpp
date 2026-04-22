@@ -330,12 +330,28 @@ vector<Owned> load()
                 {
                     size_t pos1 = line.find(',');
                     size_t pos2 = line.find(',', pos1 + 1);
+                    size_t pos3 = line.find(',', pos2 + 1);
+                    size_t pos4 = line.find(',', pos3 + 1);
+                    size_t pos5 = line.find(',', pos4 + 1);
+                    size_t pos6 = line.find(',', pos5 + 1);
+                    size_t pos7 = line.find(',', pos6 + 1);
+                    size_t pos8 = line.find(',', pos7 + 1);
+                    size_t pos9 = line.find(',', pos8 + 1);
                     
                     string name = line.substr(0, pos1);
-                    int genre = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
-                    float albums = std::stoi(line.substr(pos2 + 1));
-                        
-                    artists.push_back(Owned(name, genre, albums));
+                    int release = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
+                    float devrev = std::stoi(line.substr(pos2 + 1, pos3 - pos2 -pos1- 2));
+                    float playtime = std::stof(line.substr(line.find_last_of(',') + 1));
+                    string devName = line.substr(pos2 + 1, line.find_last_of(',') - pos2 - 1);
+                    int devEM = std::stoi(line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1));
+                    string pubName = line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1);
+                    int pubEM = std::stoi(line.substr(line.find_last_of(',') + 1, line.find_last_of(',') - line.find_last_of(',') - 1));
+                    float pubRev = std::stof(line.substr(line.find_last_of(',') + 1));
+                    float review = std::stof(line.substr(line.find_last_of(',') + 1));
+
+
+
+                    artists.push_back(Owned(name, release, devrev, playtime, devName, devEM, pubName, pubEM, pubRev, review));
                 }
                 
                 file.close();

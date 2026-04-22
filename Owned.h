@@ -23,4 +23,5 @@ void achivments();
 void saveAllAchievements(const vector<Owned>& owned);
 vector<Achievements> Aload();
 void AloadA(vector<Achievements> a){achieve=a;}
+void game();
 };
