@@ -15,5 +15,7 @@ string getname() const {return name;}
 string getdesc() const {return desc;}
 bool getcomp() const {return completion;}
 void display();
+Achievements();
+Achievements(string  , string , bool);
 };
 #endif

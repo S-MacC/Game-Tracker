@@ -21,4 +21,6 @@ void setachcomp(int i){achieve[i].setcomp(true);};
 void deleteachieve(int i){achieve.erase(achieve.begin()+i);}
 void achivments();
 void saveAllAchievements(const vector<Owned>& owned);
+vector<Achievements> Aload();
+void AloadA(vector<Achievements> a){achieve=a;}
 };

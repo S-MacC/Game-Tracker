@@ -16,6 +16,9 @@ return a.getrelease() < b.getrelease();}
 int main(){
     own=load();
     for(int x{};x<1;){
+                for(int i{};i<own.size();i++){
+                own[i].achivments();
+            }
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
@@ -45,6 +48,8 @@ int main(){
                 string game;
                 getline(cin,game);
                 bool found = false;
+                achieve=own[0].Aload();
+                own[0].AloadA(achieve);
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
                         found = true;
@@ -212,13 +217,11 @@ int main(){
                     Achievements a1;
                     Achievements a2;
                     a1.setname("Mario");
-                    a2.setcomp(true);
-                    ownednew.setachieve(a2);
+                    a1.setcomp(true);
+                    a1.setdesc("Complete the game");
+                    //ownednew.setachieve(a2);
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
-                    int value;
-                    value=own.size()-1;
-                    ownednew.achivments();
                     ownednew.game();
                             }
                 }

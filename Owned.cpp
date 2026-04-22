@@ -38,10 +38,46 @@ void Owned::achivments(){
         return;
     }
     for(int i{};i<achieve.size();i++){
-        myfile << achieve[i].getname() << "\n";
-        myfile << achieve[i].getdesc() << "\n";
-        myfile << achieve[i].getcomp() << "\n";
-        myfile << "---" << "\n";  // Separator between achievements
+        myfile << achieve[i].getname() << ",";
+        myfile << achieve[i].getdesc() << ",";
+        myfile << achieve[i].getcomp() << endl;
     }
     myfile.close();
 }
+         vector<Achievements> Owned::Aload()
+        {
+            vector<Achievements> a ;
+            string filename;
+            filename = getname() + "_A.txt";
+            std::ifstream file(filename);
+            
+            if (!file.is_open())
+            {
+                throw ("File not found or could not be opened.");
+            }
+            
+            try
+            {    
+                string line;
+                while (getline(file, line)) 
+                {
+                    size_t pos1 = line.find(',');
+                    size_t pos2 = line.find(',', pos1 + 1);
+                    
+                    string name = line.substr(0, pos1);
+                    string desc = line.substr(pos1 + 1, pos2 - pos1 - 1);
+                    bool comp = (line.substr(pos2 + 1) == "1");
+                        
+                    a.push_back(Achievements(name, desc, comp));
+                }
+                
+                file.close();
+                return a;
+            }
+            catch (...)
+            {
+                cout << "Error reading from file." << endl;
+                return {};
+            }
+        }
+        
