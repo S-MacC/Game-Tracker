@@ -13,7 +13,7 @@ void Game::game()
         return;
     }
     for(int i{};i<getname().size();i++){
-        myfile << getname() <<"-- "<< getrelease() <<"-- "<<getdev() <<"-- " << getpub() << "\n";
+        myfile << getname() <<"-- "<< getrelease() <<"-- "<<printdev() <<"-- " << printpub() << "\n";
     }
 }
 #endif

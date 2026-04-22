@@ -15,7 +15,7 @@ return a.getrelease() < b.getrelease();}
 int main(){
     for(int x{};x<1;){
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
-        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n";
+        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
         cin>>choice;
         cin.ignore();
@@ -197,7 +197,7 @@ int main(){
                     cout<<"Who is the developer\n";
                     getline(cin,dev);
                     cout<<"Who is the publisher\n";
-                    getline(cin,dev);
+                    getline(cin,publ);
                     cout<<"What franchise is the game a part of\n";
                     Owned ownednew;
                     ownednew.setname(title);
@@ -211,8 +211,10 @@ int main(){
                     ownednew.setachieve(a2);
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
-                    own[0].achivments();
-                    own[0].game();
+                    int value;
+                    value=own.size()-1;
+                    own[value].achivments();
+                    own[value].game();
                             }
                 }
                 else if(x=="wishlist"){
@@ -244,7 +246,28 @@ int main(){
                     cout << msg << endl;
                 }
             }
-            else if (choice==6){break;}
+            else if (choice==6){cout<<"Which game would you like to edit\n";
+            string egame;
+            string newgame;
+            getline(cin,egame);
+                for(int i{};i<own.size();i++){
+                newgame=own[i].getname();
+                if(egame==newgame){
+                    cout<<"What would you like to edit\n";
+                    string edit;
+                    cin>>edit;
+                    cin.ignore();
+                    if(edit=="name"){}
+                    else if(edit=="release"){}
+                    else if(edit=="developer"){}
+                    else if(edit=="publisher"){}
+                    else if(edit=="Time"){}
+                    else if(edit=="review"){}
+                    
+                };
+            }
+        }
+            else if(choice==7){break;}
     }
 }
 

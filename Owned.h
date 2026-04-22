@@ -6,7 +6,6 @@ class Owned : public Game{
 private:
 vector<Achievements>achieve;//need to add pointers
 int review;
-int players;
 float time;
 public:
 void setachieve(Achievements a1);
