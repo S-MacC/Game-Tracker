@@ -353,6 +353,18 @@ int main(){
             }
         }
             else if(choice==7){break;}
+
+            else{
+                try{
+                    throw "pick a valid option";
+                   
+                }
+                
+                catch(const char* msg){
+                    cout << msg << endl;
+                }
+                break;
+            }
     }
 }
 
