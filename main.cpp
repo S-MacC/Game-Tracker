@@ -50,11 +50,11 @@ int main(){
                 string game;
                 getline(cin,game);
                 bool found = false;
-                achieve=own[0].Aload();
-                own[0].AloadA(achieve);
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
                         found = true;
+                        achieve=own[i].Aload();
+                        own[i].AloadA(achieve); 
                         own[i].getachieve();
                         cout<<"\nWould you like to change, add or delete achievements\n";
                         string achoice;
