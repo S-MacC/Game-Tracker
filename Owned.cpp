@@ -69,7 +69,7 @@ void Owned::achivments(){
                     
                     string name = line.substr(0, pos1);
                     string desc = line.substr(pos1 + 1, pos2 - pos1 - 1);
-                    bool comp = (line.substr(pos2 + 1) == "1");
+                    bool comp = stoi(line.substr(pos2 + 1));
                         
                     a.push_back(Achievements(name, desc, comp));
                 }

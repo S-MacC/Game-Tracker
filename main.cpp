@@ -21,6 +21,10 @@ int main(){
                 for(int i{};i<own.size();i++){
                 own[i].achivments();
             }
+            remove("game.txt");
+                for(int i{};i<own.size();i++){
+                own[i].game();
+            }
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
         cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter/Find Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
