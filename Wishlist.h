@@ -1,8 +1,9 @@
-#ifndef _GAME_
-#define _GAME_
+#ifndef _WISHLIST_
+#define _WISHLIST_
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "Game.h"
 using std::string;
 class Wishlist : public Game{
 private:

@@ -1,3 +1,5 @@
+#ifndef _DEVELOPER_H_
+#define _DEVELOPER_H_
 #include <string>
 using std::string;
 class Developer{
@@ -12,4 +14,5 @@ float getrev(){return rev;}
 void setname(const string &n){name=n;};
 void setrev(const float &n){name=n;};
 void setemploy(const int &n){name=n;};
-;};
+};
+#endif

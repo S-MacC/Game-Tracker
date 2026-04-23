@@ -9,7 +9,7 @@ void Wishlist::wishlist()
         return;
     }
     
-        myfile << getname() <<","<< getrelease() <<","<<printdev() <<"," << printpub() <<"," << review << ","<< time << std::endl;
+        myfile << getname() <<","<< getrelease() <<","<<printdev() <<"," << printpub() <<","<< std::endl;
     myfile.close();
        
 }

@@ -1,3 +1,5 @@
+#ifndef _GAME_H_
+#define _GAME_H_
 #include <string>
 #include <iostream>
 #include "Developer.h"
@@ -35,3 +37,4 @@ class Game{
     void setpubemploy(int a){pub.setemploy(a);}
     void game();
 };
+#endif
