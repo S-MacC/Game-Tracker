@@ -9,7 +9,23 @@ void Wishlist::wishlist()
         return;
     }
     
-        myfile << getname() <<","<< getrelease() <<","<<printdev() <<"," << printpub() <<","<< std::endl;
+        myfile << getname() <<","<< getrelease() <<","<<printdev() <<"," << printpub() <<","<<nopre << ","<<preorder <<","<<price <<std::endl;
     myfile.close();
        
+}
+
+Wishlist::Wishlist(string n, int a, string dev, int devem, string pub, int pubem, float devrev, float pubrev, int nopre, string preorder, float price)
+{
+    setname(n);
+    setrelease(a);
+    setdev(dev);
+    setpub(pub);
+    setnopre(nopre);
+    setpreorder(preorder);
+    setprice(price);
+
+}
+
+Wishlist::Wishlist()
+{
 }

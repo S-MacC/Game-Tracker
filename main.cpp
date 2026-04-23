@@ -8,6 +8,7 @@
 using std::ofstream;
 void call();
 vector <Owned> load();
+vector <Wishlist> w_list();
 vector <Achievements>achieve;
 vector<Owned>own;
 vector<Wishlist>wish;
@@ -15,12 +16,13 @@ bool checkyear(Owned &a, Owned &b){
 return a.getrelease() < b.getrelease();}
 int main(){
     own=load();
+    wish=w_list();
     for(int x{};x<1;){
                 for(int i{};i<own.size();i++){
                 own[i].achivments();
             }
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
-        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
+        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter/Find Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
         cin>>choice;
         cin.ignore();
@@ -119,6 +121,25 @@ int main(){
         }
 
             else if(choice==3){
+                cout << "Filter or find?" << endl;
+                string d;
+                cin >> d;
+                cin.ignore();
+                if (d == "find") {
+                    cout << "What game are you looking for?" << endl;
+                    string g;
+                    getline(cin, g);
+                    bool found = false;
+                    auto it = std::find_if(own.begin(), own.end(), [&g](const Owned& game) {
+                        return game.getname() == g;
+                    });
+                    if (it == own.end()) {
+                        cout << "Game not found in owned list." << endl;
+                    }else {
+                        it->display();
+                    }
+                } 
+                else if (d == "filter") {
                 cout<<"\nWhat would you like to filter by\n";
                 string filter;
                 cin>>filter;
@@ -143,8 +164,7 @@ int main(){
                 if(publi==pub){own[i].display();};
                 }
                 }
-                
-                else;
+            }
             }
             else if (choice==4){
                 try{                                                            //exception handling for empty wishlist
@@ -350,6 +370,18 @@ int main(){
             }
         }
             else if(choice==7){break;}
+
+            else{
+                try{
+                    throw "pick a valid option";
+                   
+                }
+                
+                catch(const char* msg){
+                    cout << msg << endl;
+                }
+                break;
+            }
     }
 }
 
@@ -404,7 +436,60 @@ vector<Owned> load()
                 return {};
             }
         }
-void checkdev(){
+        vector<Wishlist> w_list()
+        {
+            vector<Wishlist> W_game;
+            std::ifstream file("wishlist.txt");
+            
+            if (!file.is_open())
+            {
+                //throw runtime_error("File not found or could not be opened.");
+            }
+            
+            try
+            {    
+                string line;
+                while (getline(file, line)) 
+                {
+                    size_t pos1 = line.find(',');
+                    size_t pos2 = line.find(',', pos1 + 1);
+                    size_t pos3 = line.find(',', pos2 + 1);
+                    size_t pos4 = line.find(',', pos3 + 1);
+                    size_t pos5 = line.find(',', pos4 + 1);
+                    size_t pos6 = line.find(',', pos5 + 1);
+                    size_t pos7 = line.find(',', pos6 + 1);
+                    size_t pos8 = line.find(',', pos7 + 1);
+                    size_t pos9 = line.find(',', pos8 + 1);
+                    size_t pos10 = line.find(',', pos9 + 1);
+                    
+                    string name = line.substr(0, pos1);
+                    int release = std::stoi(line.substr(pos1 + 1, pos2 - pos1 - 1));
+                    string devName = line.substr(pos2 + 1, pos3 - pos2 - 1);
+                    int devEM = std::stoi(line.substr(pos3 + 1, pos4 - pos3 - 1));
+                    float devrev = std::stof(line.substr(pos4 + 1, pos5 - pos4 - 1));
+                    string pubName = line.substr(pos5 + 1, pos6 - pos5 - 1);
+                    float pubRev = std::stof(line.substr(pos6 + 1, pos7 - pos6 - 1));
+                    int pubEM = std::stoi(line.substr(pos7 + 1, pos8 - pos7 - 1));
+                    int nopre = std::stoi(line.substr(pos8 + 1, pos9 - pos8 - 1));
+                    string preorder = line.substr(pos9 + 1, pos10 - pos9 - 1);
+                    float price = std::stof(line.substr(pos10 + 1));
 
-}
+
+
+                    W_game.push_back(Wishlist(name, release,  devName, devEM, pubName, pubEM, devrev,pubRev,nopre,preorder,price));
+                    int value;
+                    value=W_game.size()-1;
+                    W_game[value].setdev(devName);
+                    W_game[value].setpub(pubName);
+                }
+                
+                file.close();
+                return W_game;
+            }
+            catch (...)
+            {
+                cout << "Error reading from file." << endl;
+                return {};
+            }
+        }
         
