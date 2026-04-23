@@ -230,6 +230,7 @@ int main(){
                     wishednew.setdev(dev);
                     wishednew.setpub(publ);
                     wish.push_back(wishednew);
+                    wishednew.wishlist();
                     }
                     else{
                         throw "Invalid choice";
