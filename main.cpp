@@ -48,10 +48,10 @@ int main(){
                 string game;
                 getline(cin,game);
                 bool found = false;
-                achieve=own[0].Aload();
-                own[0].AloadA(achieve);
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
+                        achieve=own[i].Aload();
+                        own[i].AloadA(achieve);
                         found = true;
                         own[i].getachieve();
                         cout<<"\nWould you like to change, add or delete achievements\n";
@@ -375,6 +375,10 @@ vector<Owned> load()
 
 
                     artists.push_back(Owned(name, release,  devName, devEM, pubName, pubEM, devrev,pubRev,playtime, review));
+                    int value;
+                    value=artists.size()-1;
+                    artists[value].setdev(devName);
+                    artists[value].setpub(pubName);
                 }
                 
                 file.close();

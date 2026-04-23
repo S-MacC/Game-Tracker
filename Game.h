@@ -24,8 +24,8 @@ class Game{
     int getrelease(){return release;}
     string getdev(){return dev.getname();}
     string getpub(){return pub.getname();}
-    string printpub(){return pub.getname()+"--"+std::to_string(pub.getemploy())+"--"+std::to_string(pub.getrev());};
-    string printdev(){return dev.getname()+"--"+std::to_string(dev.getemploy())+"--"+std::to_string(dev.getrev());};
+    string printpub(){return pub.getname()+","+std::to_string(pub.getemploy())+","+std::to_string(pub.getrev());};
+    string printdev(){return dev.getname()+","+std::to_string(dev.getemploy())+","+std::to_string(dev.getrev());};
     virtual void display();
     void writedev(int a,float b){dev.setemploy(a);dev.setrev(b);};
     void writepub(int a,float b){pub.setemploy(a);pub.setrev(b);};
