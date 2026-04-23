@@ -22,7 +22,7 @@ class Game{
     void setrelease(int r){release=r;};
     void setdev(string d){dev.setname(d);};
     void setpub(const string &p){pub.setname(p);};
-    string getname(){return name;}
+    string getname() const {return name;}
     int getrelease(){return release;}
     string getdev(){return dev.getname();}
     string getpub(){return pub.getname();}

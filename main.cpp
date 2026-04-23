@@ -22,7 +22,7 @@ int main(){
                 own[i].achivments();
             }
         cout<<"Welcome to the Game Tracker. How can we help you today \n";
-        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
+        cout<<"Option 1: View all owned Games \n"<<"Option 2: Check Achievements\n"<<"Option 3: Filter/Find Games\n"<<"Option 4: Browse Upcoming\n"<<"Option 5: Add Game\n"<<"Option 6: Edit Games\n"<<"Option 7: Quit\n";
         int choice{};
         cin>>choice;
         cin.ignore();
@@ -121,6 +121,25 @@ int main(){
         }
 
             else if(choice==3){
+                cout << "Filter or find?" << endl;
+                string d;
+                cin >> d;
+                cin.ignore();
+                if (d == "find") {
+                    cout << "What game are you looking for?" << endl;
+                    string g;
+                    getline(cin, g);
+                    bool found = false;
+                    auto it = std::find_if(own.begin(), own.end(), [&g](const Owned& game) {
+                        return game.getname() == g;
+                    });
+                    if (it == own.end()) {
+                        cout << "Game not found in owned list." << endl;
+                    }else {
+                        it->display();
+                    }
+                } 
+                else if (d == "filter") {
                 cout<<"\nWhat would you like to filter by\n";
                 string filter;
                 cin>>filter;
@@ -145,8 +164,7 @@ int main(){
                 if(publi==pub){own[i].display();};
                 }
                 }
-                
-                else;
+            }
             }
             else if (choice==4){
                 try{                                                            //exception handling for empty wishlist
