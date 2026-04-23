@@ -48,10 +48,10 @@ int main(){
                 string game;
                 getline(cin,game);
                 bool found = false;
+                achieve=own[0].Aload();
+                own[0].AloadA(achieve);
                 for(int i{}; i<own.size(); i++){
                     if(own[i].getname() == game){
-                        achieve=own[i].Aload();
-                        own[i].AloadA(achieve);
                         found = true;
                         own[i].getachieve();
                         cout<<"\nWould you like to change, add or delete achievements\n";
@@ -175,8 +175,17 @@ int main(){
                         if(yn=="y"){
                             cout<<"\nWhat is the name of the game?\n";
                             string game;
-                            int r;
-                        }//Add find algorithm here
+                            getline(cin,game);
+                            for(int i{};i<wish.size();i++){
+                            if(wish[i].getname()==game){
+                            Owned wtemp;
+                            wtemp.setname(wish[i].getname());
+                            wtemp.setrelease(wish[i].getrelease());
+                            own.push_back(wtemp);
+                            wish.erase(wish.begin()+i);
+                            }
+                        }
+                    }
                             else if(yn=="n"){
                     string title;
                     int rel;
@@ -192,19 +201,28 @@ int main(){
                     getline(cin,dev);
                     cout<<"Who is the publisher\n";
                     getline(cin,publ);
-                    cout<<"What franchise is the game a part of\n";
-                    float s{18.4};
-                    Owned ownednew(title,rel,s);
+                    Owned ownednew(title,rel);
                     ownednew.setname(title);
                     ownednew.setrelease(rel);
                     ownednew.setdev(dev);
+                            for(int i{};i<own.size();i++){
+                            if(own[i].getdev()==dev){
+                            ownednew.writedev(own[i].getdevrev(),own[i].getdevemp());
+                            }
+                            else{ownednew.writedev(0,0);}
+                        }
                     ownednew.setpub(publ);
+                            for(int i{};i<own.size();i++){
+                            if(own[i].getpub()==publ){
+                            ownednew.writepub(own[i].getpubrev(),own[i].getpubemp());
+                            }
+                            else{ownednew.writepub(0,0);}
+                        }
                     Achievements a1;
                     Achievements a2;
                     a1.setname("Mario");
                     a1.setcomp(true);
                     a1.setdesc("Complete the game");
-                    
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
                     ownednew.game();
@@ -230,7 +248,6 @@ int main(){
                     wishednew.setdev(dev);
                     wishednew.setpub(publ);
                     wish.push_back(wishednew);
-                    wishednew.wishlist();
                     }
                     else{
                         throw "Invalid choice";
@@ -376,10 +393,6 @@ vector<Owned> load()
 
 
                     artists.push_back(Owned(name, release,  devName, devEM, pubName, pubEM, devrev,pubRev,playtime, review));
-                    int value;
-                    value=artists.size()-1;
-                    artists[value].setdev(devName);
-                    artists[value].setpub(pubName);
                 }
                 
                 file.close();
@@ -391,4 +404,7 @@ vector<Owned> load()
                 return {};
             }
         }
+void checkdev(){
+
+}
         

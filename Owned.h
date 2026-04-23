@@ -9,7 +9,7 @@ int review;
 float time;
 public:
 Owned();
-Owned(string,int,float);
+Owned(string,int);
 void setachieve(Achievements a1);
 void setreview(const int &n){review=n;};
 void settime(const float &n){time=n;};

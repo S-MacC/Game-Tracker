@@ -26,6 +26,10 @@ class Game{
     int getrelease(){return release;}
     string getdev(){return dev.getname();}
     string getpub(){return pub.getname();}
+    float getdevrev(){return dev.getrev();}
+    int getdevemp(){return dev.getemploy();}
+    float getpubrev(){return pub.getrev();}
+    int getpubemp(){return pub.getemploy();}
     string printpub(){return pub.getname()+","+std::to_string(pub.getemploy())+","+std::to_string(pub.getrev());};
     string printdev(){return dev.getname()+","+std::to_string(dev.getemploy())+","+std::to_string(dev.getrev());};
     virtual void display();

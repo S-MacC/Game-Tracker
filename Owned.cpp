@@ -1,9 +1,12 @@
 #include "Owned.h"
-Owned::Owned(string n, int a, float b)
+Owned::Owned()
+{
+}
+Owned::Owned(string n, int a)
 {
     setname(n);
     review = a;
-    time= b;
+    
 
 }
 void Owned::setachieve(Achievements a1)
