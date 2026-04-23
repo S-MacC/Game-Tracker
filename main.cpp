@@ -143,18 +143,7 @@ int main(){
                 if(publi==pub){own[i].display();};
                 }
                 }
-                else if(filter=="System"){
-                    cout<<"\nDo you want console or PC\n";
-                    string system;
-                    getline(cin,system);
-                    if(system=="console"){
-                        cout<<"\nWhich console do you want\n";
-                        string console;
-                        getline(cin,console);
-                    }
-                    else if(system=="PC"){cout<<"\nHere is a list of all your PC games\n";}
-                    else{cout<<"\nChoice not valid\n";}
-                }
+                
                 else;
             }
             else if (choice==4){
@@ -187,11 +176,7 @@ int main(){
                             cout<<"\nWhat is the name of the game?\n";
                             string game;
                             int r;
-                            string *gptr= &game;
-                            int *rptr =&r;
-                            cin>>*gptr;
-                            cin>>*rptr;
-                        }
+                        }//Add find algorithm here
                             else if(yn=="n"){
                     string title;
                     int rel;
@@ -219,7 +204,7 @@ int main(){
                     a1.setname("Mario");
                     a1.setcomp(true);
                     a1.setdesc("Complete the game");
-                    //ownednew.setachieve(a2);
+                    
                     ownednew.setachieve(a1);
                     own.push_back(ownednew);
                     ownednew.game();
@@ -284,11 +269,49 @@ int main(){
                         cout<<"What would you like to change about the Developer "<<own[perm].getdev()<<"\n";
                         string cdev;
                         getline(cin,cdev);
+                        if(cdev=="name"){cout<<"What would you like to change this to\n";
+                        string namen;
+                        getline(cin,namen);
+                        own[perm].setdev(namen);
+                        }
+                        else if(cdev=="revenue"){
+                            cout<<"What is the new revenue\n";
+                            float revn;
+                            cin>>revn;
+                            cin.ignore();
+                            own[perm].setdevrev(revn);
+                        }
+                        else if(cdev=="employees"){
+                            cout<<"What is the new amount of employees\n";
+                            int empln;
+                            cin>>empln;
+                            cin.ignore();
+                            own[perm].setdevemploy(empln);
+                        }
                     }
                     else if(edit=="publisher"){
-                        cout<<"What would you like to change about the Developer "<<own[perm].getdev()<<"\n";
+                        cout<<"What would you like to change about the Publisher "<<own[perm].getpub()<<"\n";
                         string cpub;
                         getline(cin,cpub);
+                        if(cpub=="name"){cout<<"What would you like to change this to\n";
+                        string namen;
+                        getline(cin,namen);
+                        own[perm].setpub(namen);
+                        }
+                        else if(cpub=="revenue"){
+                            cout<<"What is the new revenue\n";
+                            float revn;
+                            cin>>revn;
+                            cin.ignore();
+                            own[perm].setpubrev(revn);
+                        }
+                        else if(cpub=="employees"){
+                            cout<<"What is the new amount of employees\n";
+                            int empln;
+                            cin>>empln;
+                            cin.ignore();
+                            own[perm].setpubemploy(empln);
+                        }
                     }
                     else if(edit=="Time"){
                         cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to\n";
@@ -351,7 +374,7 @@ vector<Owned> load()
 
 
 
-                    artists.push_back(Owned(name, release, devrev, playtime, devName, devEM, pubName, pubEM, pubRev, review));
+                    artists.push_back(Owned(name, release,  devName, devEM, pubName, pubEM, devrev,pubRev,playtime, review));
                 }
                 
                 file.close();

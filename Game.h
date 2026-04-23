@@ -27,5 +27,11 @@ class Game{
     string printpub(){return pub.getname()+"--"+std::to_string(pub.getemploy())+"--"+std::to_string(pub.getrev());};
     string printdev(){return dev.getname()+"--"+std::to_string(dev.getemploy())+"--"+std::to_string(dev.getrev());};
     virtual void display();
+    void writedev(int a,float b){dev.setemploy(a);dev.setrev(b);};
+    void writepub(int a,float b){pub.setemploy(a);pub.setrev(b);};
+    void setdevrev(float a){dev.setrev(a);}
+    void setpubrev(float a){pub.setrev(a);}
+    void setdevemploy(int a){dev.setemploy(a);}
+    void setpubemploy(int a){pub.setemploy(a);}
     void game();
 };

@@ -93,17 +93,14 @@ void Owned::achivments(){
     
 }
 
-Owned::Owned(string n, int a, float b, string dev, int devem, string pub, int pubem, float devrev, float pubrev, float playtime, float review)
+Owned::Owned(string n, int a, string dev, int devem, string pub, int pubem, float devrev, float pubrev, float playtime, float review)
 {
     setname(n);
     setrelease(a);
-    settime(b);
     setdev(dev);
     setpub(pub);
     setreview(review);
     settime(playtime);
-    dev.setemploy(devem);
-    dev.setrev(devrev);
-    pub.setemploy(pubem);
-    pub.setrev(pubrev);
+    writedev(devem,devrev);
+    writepub(pubem,pubrev);
 }
