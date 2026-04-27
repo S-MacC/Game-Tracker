@@ -15,6 +15,7 @@ vector<Wishlist>wish;
 bool checkyear(Owned &a, Owned &b){
 return a.getrelease() < b.getrelease();}
 int main(){
+    int permanent;
     own=load();
     wish=w_list();
     for(int x{};x<1;){
@@ -58,6 +59,7 @@ int main(){
                     if(own[i].getname() == game){
                         found = true;
                         achieve=own[i].Aload();
+                        permanent=i;
                         own[i].AloadA(achieve); 
                         own[i].getachieve();
                         cout<<"\nWould you like to change, add or delete achievements\n";
@@ -121,8 +123,24 @@ int main(){
             
             catch(const char* msg){
                 cout << msg << endl;
+                cout<<"Would you like to add an achievement?[y/n]\n";
+                string in;
+                getline(cin,in);
+                if(in=="y"){
+                            Achievements atemp;
+                            cout<<"\nWhat is the name of your new achievement\n";
+                            string tname;
+                            getline(cin,tname);
+                            atemp.setname(tname);
+                            cout<<"\nWhat is the description you would like to add to this achievement?\n";
+                            string tdesc;
+                            getline(cin,tdesc);
+                            atemp.setdesc(tdesc);
+                            own[permanent].setachieve(atemp);
+                        }
+                };
             }
-        }
+        
 
             else if(choice==3){
                 cout << "Filter or find?" << endl;
@@ -205,6 +223,8 @@ int main(){
                             Owned wtemp;
                             wtemp.setname(wish[i].getname());
                             wtemp.setrelease(wish[i].getrelease());
+                            wtemp.setdev(wish[i].getdev());
+                            wtemp.setpub(wish[i].getpub());
                             own.push_back(wtemp);
                             wish.erase(wish.begin()+i);
                             }
@@ -215,9 +235,17 @@ int main(){
                     int rel;
                     string dev;
                     string publ;
+                    string newgame;
 
                     cout<<"What is the title\n";
                     getline(cin,title);
+                        for(int i{};i<own.size();i++){
+                        newgame=own[i].getname();
+                        if(newgame==title){
+                        own[i].setname(title);
+                        }
+                        else{cout<<"Game already exists\n";}
+                        }
                     cout<<"What is the release date\n";
                     cin>>rel;
                     cin.ignore();
@@ -257,9 +285,18 @@ int main(){
                     int rel;
                     string dev;
                     string publ;
-
+                    string newgame;
+                    int value;
+                    value=wish.size()-1;
                     cout<<"What is the title\n";
                     cin>>title;
+                        for(int i{};i<wish.size();i++){
+                        newgame=wish[i].getname();
+                        if(newgame==title){
+                        wish[value].setpub(title);
+                        }
+                        else{cout<<"Game already exists\n";}
+                        }
                     cout<<"What is the release date\n";
                     cin>>rel;
                     cout<<"Who is the developer\n";
@@ -298,6 +335,13 @@ int main(){
                         cout<<"Current game name is "<<own[perm].getname()<<". What would you like to change it to";
                         string gname;
                         getline(cin,gname);
+                        for(int i{};i<own.size();i++){
+                        newgame=own[i].getname();
+                        if(newgame==gname){
+                        own[perm].setname(gname);
+                        }
+                        else{cout<<"Game already exists\n";}
+                        }
                         own[perm].setname(gname);
                     }
                     else if(edit=="release"){
@@ -338,7 +382,7 @@ int main(){
                         if(cpub=="name"){cout<<"What would you like to change this to\n";
                         string namen;
                         getline(cin,namen);
-                        own[perm].setpub(namen);
+                        
                         }
                         else if(cpub=="revenue"){
                             cout<<"What is the new revenue\n";

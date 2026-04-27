@@ -11,7 +11,26 @@ Owned::Owned(string n, int a)
 }
 void Owned::setachieve(Achievements a1)
 {
-    achieve.push_back(a1);//need to add pointers
+    if(achieve.size()<2){
+        bool exists = false;
+        for(int i{};i<achieve.size();i++){
+            string n;
+            string d;
+    n=achieve[i].getname();
+    d=achieve[i].getdesc();
+    if(n==a1.getname() && d==a1.getdesc()){
+        cout<<"Achievement already exists\n";
+        exists = true;
+        break;
+    }
+        }
+        if(!exists){
+            achieve.push_back(a1);//need to add pointers
+        }
+    }
+    else{cout<<"No room\n";}
+        
+
 }
 void Owned::display(){cout<<"Name: "<<getname()<<"\n"<<"Release Year: "<<getrelease()<<"\n"<<"Developer: "<<getdev()<<"\n"<<"Publisher: "<<getpub()<<"\n";}
 

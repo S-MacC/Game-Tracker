@@ -39,6 +39,5 @@ class Game{
     void setpubrev(float a){pub.setrev(a);}
     void setdevemploy(int a){dev.setemploy(a);}
     void setpubemploy(int a){pub.setemploy(a);}
-    void game();
 };
 #endif

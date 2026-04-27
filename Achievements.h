@@ -1,5 +1,5 @@
-#ifndef GAME_H_
-#define GAME_H_
+#ifndef ACHIEVEMENTS_H_
+#define ACHIEVEMENTS_H_
 #include <string>
 using std::string;
 class Achievements{
